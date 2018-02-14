@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', ensureAuthentication, function(req, res, next) {
-  res.render('index', { title: 'Dashboard' , user : req.user});
+  res.render('index', { title: 'Dashboard' , 
+  // user : req.user
+});
 });
 
 function ensureAuthentication(req, res, next){

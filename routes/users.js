@@ -56,11 +56,13 @@ router.get('/login', function(req, res, next){
 });
 
 passport.serializeUser(function(user, done) {
+  // console.log(user);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
   getUserById(id, function(err, user) {
+    // console.log(user);
     done(err, user);
   });
 });
@@ -108,7 +110,7 @@ router.post('/login',
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.redirect('/');
+    res.redirect('/'+ req.user.username);
   });
 
   router.get('/logout',
