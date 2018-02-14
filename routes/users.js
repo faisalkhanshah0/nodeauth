@@ -113,7 +113,7 @@ router.post('/login',
 
   router.get('/logout',
   function(req, res) {
-    req.logOut();
+    req.logOut(); // formerly i have tried it with logout()
     // req.session.destroy();
     req.flash('success_msg', 'You have successfully Logout.');
     res.redirect('/users/login');

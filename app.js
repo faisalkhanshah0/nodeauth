@@ -75,7 +75,7 @@ app.use(function(req, res, next){
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error'); // this we setup for passport because it has extra error msg for its own
-  //  res.locals.user = req.isAuthenticated() || null;
+  //  res.locals.user = req.user || null; //unable to operate this whole functionality with this var
   // console.log(res.locals.user);
   next();
 });
