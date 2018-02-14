@@ -14,10 +14,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://shah:shah@localhost:27017/nodeauth');
-var db = mongoose.connection;
+// var mongo = require('mongodb');
+
 //extras
 
 
@@ -77,7 +75,8 @@ app.use(function(req, res, next){
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error'); // this we setup for passport because it has extra error msg for its own
-
+  //  res.locals.user = req.isAuthenticated() || null;
+  // console.log(res.locals.user);
   next();
 });
 
